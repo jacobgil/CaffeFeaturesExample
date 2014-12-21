@@ -20,10 +20,9 @@ def init_net():
 	return net
 
 def get_features(file, net):
-	print "getting features for", file
+	#print "getting features for", file
 	scores = net.predict([caffe.io.load_image(file)])
 	feat = net.blobs['fc8'].data[4][:,0, 0]
-	print feat.shape
 	return feat
 
 def shuffle_data(features, labels):
